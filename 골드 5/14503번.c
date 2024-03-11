@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int n, m, sw[] = {0, 3, 2, 1}, vis[50][50];
+int n, m, sw[] = {0, 3, 2, 1};
 short arr[50][50] = {0}, dx[] = {-1, 0, 1, 0}, dy[] = {0, -1, 0, 1};
 
 int check(int x, int y, int aa) {
@@ -24,7 +24,7 @@ int main() {
     d = sw[d];
     while (1) {
         int flag = 0, rev = (d + 2) % 4;
-        if (!arr[x][y]) arr[x][y] = 2, cnt++, vis[x][y] = cnt;
+        if (!arr[x][y]) arr[x][y] = 2, cnt++;
         for (int i = 0; i < 4; i++) {
             if (check(x + dx[i], y + dy[i], 1)) {
                 flag = 1;
@@ -37,13 +37,7 @@ int main() {
         } else {
             if (check(x + dx[rev], y + dy[rev], 0)) x += dx[rev], y += dy[rev];
             else {
-//                printf("%d", cnt);
-                for (int i = 0; i < n; i++) {
-                    printf("\n");
-                    for (int j = 0; j < m; j++) {
-                        printf("%3d ", vis[i][j]);
-                    }
-                }
+                printf("%d", cnt);
                 return 0;
             }
         }
